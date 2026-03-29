@@ -1,0 +1,48 @@
+2026-03-29 12:28:34 | INFO | ============================================================
+2026-03-29 12:28:34 | INFO |   ImmoVision 360 — Sanity Check du Data Lake
+2026-03-29 12:28:34 | INFO |   Quartier cible : Élysée
+2026-03-29 12:28:34 | INFO | ============================================================
+2026-03-29 12:28:34 | INFO | Lecture de listings.csv...
+2026-03-29 12:28:38 | INFO |   IDs attendus pour 'Élysée' : 2625
+2026-03-29 12:28:38 | INFO | 
+Vérification des images...
+2026-03-29 12:28:38 | INFO | Vérification des textes...
+2026-03-29 12:28:38 | INFO | 
+============================================================
+2026-03-29 12:28:38 | INFO |   RAPPORT D'AUDIT — Sanity Check Data Lake
+2026-03-29 12:28:38 | INFO | ============================================================
+2026-03-29 12:28:38 | INFO | 
+  📊 COMPTAGE GÉNÉRAL
+2026-03-29 12:28:38 | INFO |   Total annonces CSV (attendues) : 2625
+2026-03-29 12:28:38 | INFO |   Images présentes sur le disque : 2497
+2026-03-29 12:28:38 | INFO |   Textes présents sur le disque  : 281
+2026-03-29 12:28:38 | INFO | 
+  🖼️  AUDIT IMAGES
+2026-03-29 12:28:38 | INFO |   Images trouvées pour les IDs   : 2497 / 2625
+2026-03-29 12:28:38 | INFO |   Images manquantes (orphelines) : 128
+2026-03-29 12:28:38 | INFO |   Taux de complétion images      : 95.1 %
+2026-03-29 12:28:38 | INFO | 
+  5 premiers IDs sans image :
+2026-03-29 12:28:38 | INFO |      -> 3492606
+2026-03-29 12:28:38 | INFO |      -> 6211581
+2026-03-29 12:28:38 | INFO |      -> 6921651
+2026-03-29 12:28:38 | INFO |      -> 7299888
+2026-03-29 12:28:38 | INFO |      -> 19444226
+2026-03-29 12:28:38 | INFO | 
+  📄 AUDIT TEXTES
+2026-03-29 12:28:38 | INFO |   Textes trouvés pour les IDs    : 281 / 2625
+2026-03-29 12:28:38 | INFO |   Textes manquants (orphelins)   : 2344
+2026-03-29 12:28:38 | INFO |   Taux de complétion textes      : 10.7 %
+2026-03-29 12:28:38 | INFO | 
+  5 premiers IDs sans texte :
+2026-03-29 12:28:38 | INFO |      -> 3015969
+2026-03-29 12:28:38 | INFO |      -> 3199889
+2026-03-29 12:28:38 | INFO |      -> 3139351
+2026-03-29 12:28:38 | INFO |      -> 845652
+2026-03-29 12:28:38 | INFO |      -> 886735
+2026-03-29 12:28:38 | INFO | 
+  💾 Log sauvegardé dans : data/raw/sanity_check.log
+2026-03-29 12:28:38 | INFO | ============================================================
+2026-03-29 12:28:38 | INFO |   ⚠️  Taux de complétion insuffisant.
+2026-03-29 12:28:38 | INFO |   Relance les scripts 01 et 02 pour compléter le Lake.
+2026-03-29 12:28:38 | INFO | ============================================================
