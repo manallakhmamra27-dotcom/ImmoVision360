@@ -111,3 +111,16 @@ Annonces sans commentaires (logements récents)
 Licence des données
 Inside Airbnb — Creative Commons CC BY 4.0
 Usage académique uniquement — projet non commercial.
+
+## Preuve PostgreSQL — Data Warehouse
+### Colonnes : id, host_id, price, availability
+![PostgreSQL 1](image.png)
+
+### Colonnes : notes, reviews, neighbourhood
+![PostgreSQL 2](image-1.png)
+
+### Colonnes IA : Standardization_Score, Neighborhood_Impact
+![PostgreSQL 3](image-2.png)
+
+
+

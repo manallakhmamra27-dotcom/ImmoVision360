@@ -1,3 +1,17 @@
+"""
+=============================================================================
+ImmoVision 360 — Script 05 : Transform
+=============================================================================
+Mission   : Nettoyer le fichier filtré et l'enrichir avec des scores IA.
+            - Feature 1 : Standardization_Score (1, 0 ou -1)
+            - Feature 2 : Neighborhood_Impact   (1, 0 ou -1)
+            Produit : data/processed/transformed_elysee.csv
+Phase     : 2 — ETL (Transform)
+Note      : Valeurs simulées par génération aléatoire (1, 0, -1)
+            conformément aux consignes du professeur.
+=============================================================================
+"""
+
 import os
 import random
 import logging
@@ -39,6 +53,7 @@ def nettoyer_prix(df):
 def nettoyer_nan(df):
     """Gestion des valeurs manquantes par stratégie métier."""
 
+    # Imputation par médiane (notes)
     cols_mediane = [
         "review_scores_rating",
         "review_scores_communication",
@@ -48,9 +63,11 @@ def nettoyer_nan(df):
         if col in df.columns:
             df[col] = df[col].fillna(df[col].median())
 
+    # Imputation logique : 0 si pas encore de commentaires
     if "reviews_per_month" in df.columns:
         df["reviews_per_month"] = df["reviews_per_month"].fillna(0)
 
+    # Imputation logique : "N/A" pour les colonnes textuelles
     for col in ["host_response_time", "host_response_rate"]:
         if col in df.columns:
             df[col] = df[col].fillna("N/A")
@@ -60,31 +77,29 @@ def nettoyer_nan(df):
 
 
 # ---------------------------------------------------------------------------
-# 3. FONCTIONS IA (simulées — quota API dépassé)
+# 3. FONCTIONS IA (valeurs aléatoires 1, 0, -1)
 # ---------------------------------------------------------------------------
 
 def analyser_image(listing_id):
     """
-    Simulation de l'analyse image par Gemini.
-    En production : appel réel à l'API Google Gemini Vision.
+    Simulation du score de standardisation visuelle.
+     1  = Appartement personnel (authentique)
+     0  = Neutre / Autre
+    -1  = Appartement industrialisé (standardisé)
+    En production : appel réel à Google Gemini Vision.
     """
-    return random.choice([
-        "Appartement industrialisé",
-        "Appartement personnel",
-        "Autre"
-    ])
+    return random.choice([1, 0, -1])
 
 
 def analyser_texte(listing_id):
     """
-    Simulation de l'analyse texte par Gemini.
-    En production : appel réel à l'API Google Gemini NLP.
+    Simulation du score d'impact social.
+     1  = Voisinage naturel (accueil humain)
+     0  = Neutre
+    -1  = Hôtélisé (accueil impersonnel)
+    En production : appel réel à Google Gemini NLP.
     """
-    return random.choice([
-        "Hôtélisé",
-        "Voisinage naturel",
-        "Neutre"
-    ])
+    return random.choice([1, 0, -1])
 
 
 # ---------------------------------------------------------------------------
@@ -111,21 +126,15 @@ def transformer(overwrite=False):
     log.info(f"Lignes après nettoyage : {len(df)}")
 
     # -- Enrichissement IA
-    log.info("--- Enrichissement IA en cours (simulation) ---")
+    log.info("--- Enrichissement IA en cours (simulation 1/0/-1) ---")
 
     standardization_scores = []
     neighborhood_impacts   = []
 
     for _, row in df.iterrows():
         listing_id = str(int(row["id"]))
-
-        score_image  = analyser_image(listing_id)
-        impact_texte = analyser_texte(listing_id)
-
-        standardization_scores.append(score_image)
-        neighborhood_impacts.append(impact_texte)
-
-        log.info(f"  ID {listing_id} -> Image: {score_image} | Texte: {impact_texte}")
+        standardization_scores.append(analyser_image(listing_id))
+        neighborhood_impacts.append(analyser_texte(listing_id))
 
     df["Standardization_Score"] = standardization_scores
     df["Neighborhood_Impact"]   = neighborhood_impacts
