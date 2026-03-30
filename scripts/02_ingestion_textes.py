@@ -1,13 +1,4 @@
-"""
-02_ingestion_textes.py
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Projet   : ImmoVision 360 — Gentrification de l'Élysée (Paris)
-Phase    : 1 — Collecte & Ingestion (Data Lake)
-Objectif : Lire reviews.csv, regrouper les commentaires par
-           annonce et créer un fichier <ID>.txt par annonce
-           dans /data/raw/texts/.
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-"""
+
 
 import os
 import re

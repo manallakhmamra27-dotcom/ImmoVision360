@@ -1,14 +1,4 @@
-"""
-01_ingestion_images.py
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Projet   : ImmoVision 360 — Gentrification de l'Élysée (Paris)
-Phase    : 1 — Collecte & Ingestion (Data Lake)
-Objectif : Télécharger les photos des appartements du quartier
-           Élysée depuis les URLs contenues dans listings.csv,
-           les redimensionner à 320×320 px et les stocker sous
-           le nom <ID>.jpg dans /data/raw/images/.
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-"""
+
 
 import os
 import time

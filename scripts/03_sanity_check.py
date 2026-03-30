@@ -1,12 +1,4 @@
-"""
-03_sanity_check.py
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Projet   : ImmoVision 360 — Gentrification de l'Élysée (Paris)
-Phase    : 1 — Bilan de Santé du Data Lake
-Objectif : Auditer le Data Lake et vérifier que les images
-           et les textes sont bien présents pour chaque annonce.
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-"""
+
 
 import os
 import logging

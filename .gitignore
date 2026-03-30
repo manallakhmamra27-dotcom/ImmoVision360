@@ -1,3 +1,4 @@
-data/raw/images/ 
-data/raw/tabular/ 
-data/raw/texts/ 
+data/raw/images/
+data/raw/tabular/
+data/raw/texts/
+.env
