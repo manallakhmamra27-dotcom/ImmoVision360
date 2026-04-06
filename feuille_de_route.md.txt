@@ -1,0 +1,14 @@
+# Feuille de Route EDA — ImmoVision 360
+
+| # | Question | Variable(s) | Nature | Graphique |
+|---|----------|-------------|--------|-----------|
+| 1 | Peu d'acteurs concentrent-ils l'offre ? | `calculated_host_listings_count` | Quantitative | Histogramme |
+| 2 | Les logements très disponibles ressemblent-ils à des catalogues ? | `availability_365` × `standardization_score` | Quantitative × Ordinale | Nuage de points |
+| 3 | La réactivité "service client" est-elle visible ? | `host_response_rate_num`, `host_response_time_code` | Quantitative × Ordinale | Barres + Boxplot |
+| 4 | Le type de logement influence-t-il la standardisation ? | `room_type_code` × `standardization_score` | Nominale × Ordinale | Barres groupées |
+| 5 | L'impact social varie-t-il selon la disponibilité ? | `availability_365` × `neighborhood_impact_score` | Quantitative × Ordinale | Boxplot |
+
+## Limites
+- `price` absent — impossible d'analyser les prix
+- Scores simulés (valeurs aléatoires)
+- Les valeurs `-1` = information non disponible
