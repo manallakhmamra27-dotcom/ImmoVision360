@@ -5,6 +5,7 @@ des locations Airbnb sur la gentrification du quartier de l'Élysée.
 Les données proviennent du portail Open Data Inside Airbnb.
 
 Structure du Projet
+'''
 ImmoVision360_DataLake/
 ├── data/
 │   ├── raw/                        # Zone Bronze (données brutes)
@@ -28,7 +29,7 @@ ImmoVision360_DataLake/
 ├── .env.example
 ├── .gitignore
 └── README.md
-
+'''
 Prérequis
 
 Python 3.10+
